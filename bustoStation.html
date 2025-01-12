@@ -13,14 +13,11 @@
         <h1>역으로 가는 버스 시간표</h1>
         <a href="index.html" class="button back-button">🔙</a>
       </header>
-
       <!-- 상단 고정 -->
       <div class="tabs sticky-tabs">
         <button class="tab-button active" data-tab="weekday">평일</button>
         <button class="tab-button" data-tab="holiday">주말/공휴일</button>
       </div>
-
-      <!-- 시간표 영역 -->
       <div id="scheduleContainer">
         <div id="weekday" class="schedule-section">
           <h2 class="schedule-type">평일</h2>
@@ -34,6 +31,7 @@
               </tr>
             </thead>
             <tbody id="weekdaySchedule"></tbody>
+            <tbody id="holidaySchedule"></tbody>
           </table>
         </div>
 
@@ -48,12 +46,18 @@
                 <th>영남루</th>
               </tr>
             </thead>
+            <tbody id="weekdaySchedule"></tbody>
             <tbody id="holidaySchedule"></tbody>
           </table>
         </div>
       </div>
     </div>
-    <script src="scripts/scheduleData.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="script/scheduleData.js"></script>
+    <script src="script/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        renderSchedule('toStation');
+      });
+    </script>
   </body>
 </html>

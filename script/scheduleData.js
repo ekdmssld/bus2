@@ -377,21 +377,44 @@ const busSchedule = {
   },
 };
 
-function updateScheduleDisplay() {
-  const container = document.getElementById('scheduleContainer');
+function updateScheduleDisplay(currentDirection, currentTab) {
   const scheduleData = busSchedule[currentDirection];
+  if (!scheduleData) {
+    console.error(`no schedule data found for direction: ${direction}`);
+    return;
+  }
+
+  const data = scheduleData[currentTab];
+  if (!data) {
+    console.error(`no schedule data found for ${currentTab}`);
+    return;
+  }
+
+  const container = document.getElementById(currentTab);
+  if (!container) {
+    console.error(`container not found for ${currentTab}`);
+    return;
+  }
+
+  const schedules = scheduleData[currentTab];
+  if (!schedules) {
+    console.error(`no schedule data found for ${currentDirection}`);
+  }
+
+  const headers =
+    currentDirection === 'toSchool'
+      ? busSchedule.headers
+      : busSchedule.toStation.headers;
 
   let html = `
       <table class="schedule-table">
           <thead>
               <tr>
-                  ${scheduleData.headers
-                    .map((header) => `<th>${header}</th>`)
-                    .join('')}
+                  ${headers.map((header) => `<th>${header}</th>`).join('')}
               </tr>
           </thead>
           <tbody>
-              ${scheduleData.schedules
+              ${data
                 .map(
                   (schedule) => `
                   <tr>

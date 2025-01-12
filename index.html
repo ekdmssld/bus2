@@ -9,14 +9,13 @@
   <body>
     <div class="container">
       <div class="direction-selector">
-        <button class="button" id="toSchoolBtn">🏫 학교로</button>
-        <button class="button" id="toStationBtn">🚉 역으로</button>
+        <a href="bus.html" class="button-link" id="toSchoolBtn">🏫 학교로</a>
+        <a href="bustoStation.html" class="button-link" id="toStationBtn"
+          >🚉 역으로</a
+        >
+        <footer class="footer">by daeunmummu</footer>
       </div>
-
-      <div class="tabs sticky-tabs" style="display: none">
-        <button class="tab-button active" data-tab="weekday">평일</button>
-        <button class="tab-button" data-tab="holiday">주말/공휴일</button>
-      </div>
+      <div id="scheduleContainer"></div>
 
       <div id="scheduleContainer" style="display: none">
         <!-- 평일 시간표 -->
@@ -52,7 +51,7 @@
         </div>
       </div>
     </div>
-    <script src="scripts/scheduleData.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="script/scheduleData.js"></script>
+    <script src="script/main.js"></script>
   </body>
 </html>
