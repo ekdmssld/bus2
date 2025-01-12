@@ -62,25 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const rows = data
-      .map((item) => {
-        if (direction === 'toSchool') {
-          return `
-              <tr>
-                <td>${item.route}</td>
-                <td>${item.yeongnamru || '-'}</td>
-                <td>${item.station || '-'}</td>
-                <td>${item.university || '-'}</td>
-              </tr>`;
-        } else if (direction === 'toStation') {
-          return `
-              <tr>
-                <td>${item.route}</td>
-                <td>${item.university || '-'}</td>
-                <td>${item.station || '-'}</td>
-                <td>${item.yeongnamru || '-'}</td>
-              </tr>`;
-        }
-      })
+      .map(
+        (item) =>
+          `<tr>
+            <td>${item.route}</td>
+            <td>${item.yeongnamru || '-'}</td>
+            <td>${item.station || '-'}</td>
+            <td>${item.university || '-'}</td>
+          </tr>`
+      )
       .join('');
     container.innerHTML = rows;
   }
