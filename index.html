@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>버스 시간표</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="direction-selector">
+        <button class="button" id="toSchoolBtn">🏫 학교로</button>
+        <button class="button" id="toStationBtn">🚉 역으로</button>
+      </div>
+
+      <div class="tabs sticky-tabs" style="display: none">
+        <button class="tab-button active" data-tab="weekday">평일</button>
+        <button class="tab-button" data-tab="holiday">주말/공휴일</button>
+      </div>
+
+      <div id="scheduleContainer" style="display: none">
+        <!-- 평일 시간표 -->
+        <div id="weekday" class="schedule-section">
+          <h2 class="schedule-type">평일</h2>
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>버스 노선</th>
+                <th>영남루</th>
+                <th>밀양역</th>
+                <th>부산대</th>
+              </tr>
+            </thead>
+            <tbody id="weekdaySchedule"></tbody>
+          </table>
+        </div>
+
+        <!-- 주말/공휴일 시간표 -->
+        <div id="holiday" class="schedule-section">
+          <h2 class="schedule-type">주말/공휴일</h2>
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>버스 노선</th>
+                <th>영남루</th>
+                <th>밀양역</th>
+                <th>부산대</th>
+              </tr>
+            </thead>
+            <tbody id="holidaySchedule"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="scripts/scheduleData.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
